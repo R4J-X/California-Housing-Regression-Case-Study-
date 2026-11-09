@@ -1,0 +1,65 @@
+scikit-learn 1.9.1 | numpy 2.5.4 | pandas 3.0.6
+
+Records: 20640 | Features: 8
+Feature names: ['MedInc', 'HouseAge', 'AveRooms', 'AveBedrms', 'Population', 'AveOccup', 'Latitude', 'Longitude']
+
+Missing values per column:
+ MedInc        0
+HouseAge      0
+AveRooms      0
+AveBedrms     0
+Population    0
+AveOccup      0
+Latitude      0
+Longitude     0
+
+Target ($100,000 units): min 0.150  max 5.000  mean 2.069
+Capped blocks (value = $500,001): 965 (4.7%)
+
+Training examples: 16512 | Test examples: 4128
+Linear Regression    MAE    53,320 | RMSE    74,558 | R2 0.576 | 0.02s
+Random Forest        MAE    32,773 | RMSE    50,599 | R2 0.805 | 8.41s
+Gradient Boosting    MAE    32,740 | RMSE    48,760 | R2 0.819 | 8.02s
+Linear Regression    CV R2 0.601 +/- 0.017
+Random Forest        CV R2 0.810 +/- 0.006
+Gradient Boosting    CV R2 0.825 +/- 0.009
+
+Table 1 - performance on the held-out test set (20% of data)
+            Model    MAE ($)   RMSE ($)  Test R2  CV R2 mean  CV R2 sd  Train time (s) Best
+Linear Regression 53,320.013 74,558.138    0.576       0.601     0.017           0.022     
+    Random Forest 32,773.108 50,598.599    0.805       0.810     0.006           8.414     
+Gradient Boosting 32,739.733 48,759.878    0.819       0.825     0.009           8.022    *
+
+Best model: Gradient Boosting
+RMSE reduction vs Linear Regression: 34.6%
+
+Random Forest feature importances (descending):
+MedInc        0.525
+AveOccup      0.138
+Latitude      0.089
+Longitude     0.088
+HouseAge      0.055
+AveRooms      0.044
+Population    0.031
+AveBedrms     0.030
+
+Table 2a - smallest errors:
+       MedInc  HouseAge  AveRooms  AveBedrms  Population  AveOccup  Latitude  Longitude  Actual ($)  Predicted ($)  Abs Error ($)
+2789     1.74      18.0      4.91       1.12      1425.0      3.06     37.36    -118.42     54400.0       54409.17           9.17
+12291    1.42      29.0      4.46       1.15      1583.0      2.53     33.93    -116.97     73200.0       73176.29          23.71
+15378    4.50      11.0      6.19       1.07      1250.0      2.78     33.36    -117.24    222600.0      222575.59          24.41
+
+Table 2b - largest errors:
+       MedInc  HouseAge  AveRooms  AveBedrms  Population  AveOccup  Latitude  Longitude  Actual ($)  Predicted ($)  Abs Error ($)
+12389    3.77      24.0     10.95       1.85       473.0      2.00     33.75    -116.43    500001.0      188678.18      311322.82
+10574    1.97       6.0      4.80       1.16       125.0      2.84     33.72    -117.70    500001.0      171020.66      328980.34
+19542    1.77      39.0      5.00       0.89        22.0      2.44     37.63    -120.92    450000.0      119838.68      330161.32
+
+Worked example - decision-tree split
+SSE before split : 5.24
+Left  group {1.0, 1.4}: mean 1.20, SSE 0.08
+Right group {3.0, 3.8}: mean 3.40, SSE 0.32
+SSE after split  : 0.40 (reduction 4.84)
+Prediction for a block with MedInc = 7 (x $10,000): $340000
+
+All outputs written to: /home/claude/submission/california-housing-regression-case-study/outputs

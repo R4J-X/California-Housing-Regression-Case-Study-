@@ -1,0 +1,38 @@
+{
+  "sklearn_version": "1.9.1",
+  "n_records": 20640,
+  "n_features": 8,
+  "n_train": 16512,
+  "n_test": 4128,
+  "n_capped_blocks": 965,
+  "best_model": "Gradient Boosting",
+  "models": [
+    {
+      "Model": "Linear Regression",
+      "MAE ($)": 53320.01304956565,
+      "RMSE ($)": 74558.1383012776,
+      "Test R2": 0.5757877060324512,
+      "CV R2 mean": 0.6013781013684618,
+      "CV R2 sd": 0.01701030637219809,
+      "Train time (s)": 0.021781439999998042
+    },
+    {
+      "Model": "Random Forest",
+      "MAE ($)": 32773.108008720934,
+      "RMSE ($)": 50598.59946022769,
+      "Test R2": 0.8046244867176197,
+      "CV R2 mean": 0.809510704067996,
+      "CV R2 sd": 0.006499147039552406,
+      "Train time (s)": 8.413604791000012
+    },
+    {
+      "Model": "Gradient Boosting",
+      "MAE ($)": 32739.733225851764,
+      "RMSE ($)": 48759.87784403807,
+      "Test R2": 0.8185661326468383,
+      "CV R2 mean": 0.8250371138414959,
+      "CV R2 sd": 0.008537897695616166,
+      "Train time (s)": 8.022174437999993
+    }
+  ]
+}
